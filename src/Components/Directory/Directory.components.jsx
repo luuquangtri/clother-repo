@@ -26,7 +26,7 @@ function Directory() {
         },
         {
             title: "mens",
-            imageUrl: "https://i.ibb.co/R70vBrQ/mens.pngF",
+            imageUrl: "https://i.ibb.co/R70vBrQ/mens.png",
             size: "large",
             id: 5
         }
