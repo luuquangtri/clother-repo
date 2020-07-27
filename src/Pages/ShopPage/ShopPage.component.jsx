@@ -2,9 +2,12 @@ import PreviewCollections from 'Components/PreviewCollections/PreviewCollections
 import React, { useState } from 'react';
 import SHOP_DATA from './ShopPage.data';
 
+
 function ShopPage() {
     const initial = SHOP_DATA;
     const [collections] = useState(initial);
+    console.log(collections);
+
     return (
         <div className="shop-page">
             {
