@@ -7,38 +7,46 @@ function Directory() {
             title: "hats",
             imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
             id: 1,
+            linkUrl: "hats"
         },
         {
             title: "jackets",
             imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-            id: 2
+            id: 2,
+            linkUrl: "jackets"
         },
         {
             title: "sneakers",
             imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-            id: 3
+            id: 3,
+            linkUrl: "sneakers"
         },
         {
             title: "woments",
             imageUrl: "https://i.ibb.co/GCCdy8t/woments.png",
             size: "large",
-            id: 4
+            id: 4,
+            linkUrl: "woments"
         },
         {
             title: "mens",
             imageUrl: "https://i.ibb.co/R70vBrQ/mens.png",
             size: "large",
-            id: 5
+            id: 5,
+            linkUrl: "mens"
         }
     ]
 
 
-    const [sectionMenus, setSectionMenus] = useState(initial);
+    const [sectionMenus] = useState(initial);
     return (
         <div className="directory-menu">
             {
-                sectionMenus.map(sectionMenu => (
-                    <MenuItem title={sectionMenu.title} key={sectionMenu.id} imageUrl={sectionMenu.imageUrl} size={sectionMenu.size} />
+                sectionMenus.map(({ id, ...ortherSectionProps }) => (
+                    <MenuItem
+                        key={id}
+                        {...ortherSectionProps}
+                    />
                 ))
             }
         </div>
