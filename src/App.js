@@ -1,3 +1,4 @@
+import Header from 'Components/Common/Header/Header.component';
 import HomePage from 'Pages/HomePage/Homepage.component';
 import ShopPage from 'Pages/ShopPage/ShopPage.component';
 import React from 'react';
@@ -12,6 +13,7 @@ const HatPage = () => {
 function App() {
   return (
     <div className="App">
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
