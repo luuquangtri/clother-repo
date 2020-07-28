@@ -1,6 +1,7 @@
+import CustomButton from 'Components/Common/CustomButton/CustomButton.component';
 import FormInput from 'Components/Common/FormInput/FormInput.component';
 import React, { useState } from 'react';
-
+import "./signin.styles.scss";
 function SignIn(props) {
     const [state, setState] = useState({
         email: "",
@@ -25,7 +26,7 @@ function SignIn(props) {
 
 
     return (
-        <div div div className="sign-in" >
+        <div className="sign-in" >
             <h2>I already hava a account</h2>
             <span>Sign in with your email and password </span>
             <form onSubmit={handleSubmit}>
@@ -46,7 +47,7 @@ function SignIn(props) {
                     label="password"
                 />
 
-                <input type="submit" value="Submit form" />
+                <CustomButton type="submit">SIGN IN</CustomButton>
             </form>
         </div>
     );
