@@ -2,10 +2,31 @@
 
 # home page
 
-- directory child of homepage
+- directory component child of homepage
 
 ## directory
 
-- menu-item child of directory
+- menu-item component child of directory component
 
 #### menu-item
+
+
+<!-- source map Shop page -->
+
+# shop page
+
+- previewCollections component is child of shopage
+
+## previewCollections
+
+- previewCollectionItem child of previewCollections component
+
+#### previewCollectionItem
+
+
+
+<!-- source map sign in sign up page -->
+
+# sign in sign up page
+
+## sign in component

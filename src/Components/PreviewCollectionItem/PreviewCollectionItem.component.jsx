@@ -1,6 +1,8 @@
 import React from 'react';
 import "./PreviewCollection.styles.scss";
 function PreviewCollectionItem(props) {
+    // console.log("props", props);
+
     const { id, name, price, imageUrl } = props;
     return (
         <div className="collection-item">

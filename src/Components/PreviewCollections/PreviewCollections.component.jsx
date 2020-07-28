@@ -3,8 +3,6 @@ import React from 'react';
 import "./PreviewCollections.styles.scss";
 function PreviewCollections(props) {
     const { title, items } = props;
-
-
     return (
         <div className="collection-preview">
             <h1 className="title">{title.toUpperCase()}</h1>
