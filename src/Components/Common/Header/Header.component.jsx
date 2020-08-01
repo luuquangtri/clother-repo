@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ReactComponent as Logo } from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import "./Header.styles.scss";
-function Header() {
+import { auth } from 'firebase/firebase.utils';
+function Header(props) {
+    const { currentUser } = props;
+    console.log(currentUser);
+
+
     return (
         <div className="header">
             <Link to="/" className="logo-container" >
@@ -11,7 +16,18 @@ function Header() {
             <div className="options">
                 <Link className="option" to="/shop">SHOP</Link>
                 <Link className="option" to="/contact">CONTACT</Link>
-                <Link className="option" to="/signin">SIGN IN</Link>
+                {
+                    currentUser ?
+                        (
+                            <Fragment>
+                                <div className="option">{currentUser.displayName}</div>
+                                <Link onClick={() => auth.signOut()} to="/signin" className="option">SIGN OUT</Link>
+                            </Fragment>
+
+                        )
+                        :
+                        (<Link className="option" to="/signin">SIGN IN</Link>)
+                }
             </div>
         </div>
     );

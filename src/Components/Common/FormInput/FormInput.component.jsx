@@ -6,7 +6,7 @@ FormInput.propTypes = {
 };
 
 function FormInput(props) {
-    console.log(props);
+    // console.log(props);
 
     const { handleChange, label, ...ortherProps } = props;
     return (

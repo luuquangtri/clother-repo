@@ -6,9 +6,9 @@ CustomButton.propTypes = {
 };
 
 function CustomButton(props) {
-    const { children, ...ortherProps } = props;
+    const { children, isGoogleSignIn, ...ortherProps } = props;
     return (
-        <button className="custom-button" {...ortherProps}>{children}</button>
+        <button className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...ortherProps}>{children}</button>
     );
 }
 
