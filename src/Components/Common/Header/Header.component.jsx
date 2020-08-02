@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import "./Header.styles.scss";
 import { auth } from 'firebase/firebase.utils';
 import { useSelector } from 'react-redux';
+import CartIcon from 'Components/Cart/Cart-Icon/Cart-icon.component';
+import CartDropDown from 'Components/Cart/Cart-dropdown/Cart-dropdown.component';
 function Header(props) {
     const currentUser = useSelector(state => state.user.currentUser);
 
@@ -27,6 +29,8 @@ function Header(props) {
                         :
                         (<Link className="option" to="/signin">SIGN IN</Link>)
                 }
+                <CartIcon />
+                <CartDropDown />
             </div>
         </div>
     );

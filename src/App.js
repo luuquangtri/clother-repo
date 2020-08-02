@@ -5,16 +5,14 @@ import ShopPage from 'Pages/ShopPage/ShopPage.component';
 import SignInAndSignUpPage from 'Pages/Sign-in-and-Sign-up-Page/Sign-in-and-Sign-up-Page.component';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { setCurrentUser } from 'redux/User/user.action';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentUser: null
-    }
+
   }
   unSubcribeFromAuth = null;
   componentDidMount() {
@@ -45,7 +43,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/signin" component={SignInAndSignUpPage} />
+          <Route exact path="/signin" render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
         </Switch>
       </div>
     );
@@ -58,7 +56,13 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentUser: state.user.currentUser
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 
