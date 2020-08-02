@@ -3,10 +3,9 @@ import { ReactComponent as Logo } from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import "./Header.styles.scss";
 import { auth } from 'firebase/firebase.utils';
+import { useSelector } from 'react-redux';
 function Header(props) {
-    const { currentUser } = props;
-    console.log(currentUser);
-
+    const currentUser = useSelector(state => state.user.currentUser);
 
     return (
         <div className="header">
