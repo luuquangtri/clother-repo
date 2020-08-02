@@ -24,10 +24,8 @@ class SignUp extends Component {
             try {
                 const { user } = await auth.createUserWithEmailAndPassword(email, password);
                 await createUserProfileDocument(user, { displayName })
-
             } catch (error) {
                 alert(error)
-
             }
         }
     }
@@ -35,7 +33,6 @@ class SignUp extends Component {
         let target = e.target;
         let name = target.name;
         let value = target.type === "checkbox" ? target.checked : target.value;
-
         this.setState({
             [name]: value
         })

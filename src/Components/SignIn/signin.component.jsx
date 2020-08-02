@@ -1,17 +1,27 @@
 import CustomButton from 'Components/Common/CustomButton/CustomButton.component';
 import FormInput from 'Components/Common/FormInput/FormInput.component';
-import { signInWithGoogle } from 'firebase/firebase.utils';
+import { auth, signInWithGoogle } from 'firebase/firebase.utils';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./signin.styles.scss";
 function SignIn(props) {
-    const [state, setState] = useState({
+    const initial = {
         email: "",
         password: ""
-    })
-
-    const handleSubmit = (e) => {
+    }
+    const [state, setState] = useState(initial);
+    const history = useHistory();
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const { email, password } = state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            setState({ ...initial, email: "", password: "" });
+            history.push("/");
+        } catch (error) {
+            console.log(error);
 
+        }
     }
 
 
